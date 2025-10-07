@@ -1,0 +1,27 @@
+{
+	"BUILD_DIR" : "/Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug/gestion_stock_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/genix/Desktop/gestion_stock",
+	"CMAKE_SOURCE_DIR" : "/Users/genix/Desktop/gestion_stock",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug/gestion_stock_autogen/include",
+	"INPUTS" : 
+	[
+		"/Users/genix/Desktop/gestion_stock/stat.png",
+		"/Users/genix/Desktop/gestion_stock/images/q.jpg",
+		"/Users/genix/Desktop/gestion_stock/images/a.png"
+	],
+	"LOCK_FILE" : "/Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/gestion_stock_autogen.dir/AutoRcc_resoources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resoources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resoources.cpp",
+	"RCC_EXECUTABLE" : "/Users/genix/Qt/6.9.2/macos/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/gestion_stock_autogen.dir/AutoRcc_resoources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/Users/genix/Desktop/gestion_stock/resoources.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}
