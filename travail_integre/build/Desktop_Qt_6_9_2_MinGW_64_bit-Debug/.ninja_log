@@ -1,0 +1,12 @@
+# ninja log v6
+62	372	7815720355502931	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+62	372	7815720355502931	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+62	372	7815720355502931	gestion_stock_autogen/timestamp	ba45df9774da10cd
+62	372	7815720355502931	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+2346	9392	7809868703855613	CMakeFiles/gestion_stock.dir/gestion_stock_autogen/mocs_compilation.cpp.obj	b768aac43d1d410d
+2353	9422	7809868703915463	CMakeFiles/gestion_stock.dir/main.cpp.obj	cabf964cee51e11b
+322	757	7810138541754712	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/EWIEGA46WW/qrc_resoources.cpp	412882fd15f18086
+374	5395	7815720358678728	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	d32d4d4bc5eb90e1
+5395	5856	7815720408887008	gestion_stock.exe	78cb5bf636db095d
+322	757	7810138541754712	gestion_stock_autogen/EWIEGA46WW/qrc_resoources.cpp	412882fd15f18086
+761	8949	7810138542050740	CMakeFiles/gestion_stock.dir/gestion_stock_autogen/EWIEGA46WW/qrc_resoources.cpp.obj	5b000ff72c6cf98d
