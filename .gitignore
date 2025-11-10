@@ -1,0 +1,35 @@
+# Qt Creator user files
+*.user
+*.user.*
+*.autosave
+
+# Build directories
+build/
+build-*/
+*build-*
+
+# Compiled Object files
+*.o
+*.obj
+
+# Qt MOC files
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+
+# Executables
+*.exe
+*.app
+*.out
+
+# Qt Creator project user files
+CMakeLists.txt.user*
+
+# PDFs (optional - remove if you want to include them)
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
