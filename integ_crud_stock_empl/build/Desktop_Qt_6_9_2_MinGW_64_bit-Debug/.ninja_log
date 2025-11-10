@@ -1,0 +1,76 @@
+# ninja log v6
+110	543	7844788081540766	gestion_stock_autogen/timestamp	ba45df9774da10cd
+110	543	7844788081540766	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+110	543	7844788081540766	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+110	543	7844788081540766	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+67	205	7844783303599202	.qt/qml_imports/gestion_stock_build.cmake	74978f8995c30f23
+545	10147	7844788085889141	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+2139	14957	7844783323049331	CMakeFiles/gestion_stock.dir/main.cpp.obj	566cff6d4ba09835
+40	80	7844783276843462	CMakeFiles/clean.additional	baedbe210acaa455
+2135	14951	7844783322999479	CMakeFiles/gestion_stock.dir/gestion_stock_autogen/mocs_compilation.cpp.obj	16a5a11834cb247d
+7044	17698	7838667763703931	CMakeFiles/gestion_stock.dir/gestion_stock_autogen/EWIEGA46WW/qrc_resoources.cpp.obj	38ea2d424f73bb4f
+10147	10924	7844788181902265	gestion_stock.exe	67c1c2a6825101d0
+67	205	7844783303599202	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qt/qml_imports/gestion_stock_build.cmake	74978f8995c30f23
+2149	12072	7844783323149074	CMakeFiles/gestion_stock.dir/connexion.cpp.obj	31f8563df06e139a
+2154	15079	7844783323198941	CMakeFiles/gestion_stock.dir/produit.cpp.obj	4464183a2b9acc06
+329	10936	7844756430875114	build.ninja	63d1aae4ec6f0276
+551	8002	7844788085938998	CMakeFiles/gestion_stock.dir/employe.cpp.obj	e32c6f512c7eeede
+81	99	7844783277242146	clean	577b940aee94fbd7
+115	533	7844795679482617	gestion_stock_autogen/timestamp	ba45df9774da10cd
+115	533	7844795679482617	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+115	533	7844795679482617	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+115	533	7844795679482617	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+104	511	7844795903860986	gestion_stock_autogen/timestamp	ba45df9774da10cd
+104	511	7844795903860986	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+104	511	7844795903860986	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+104	511	7844795903860986	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+514	9616	7844795907950028	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+9616	10628	7844795998976526	gestion_stock.exe	67c1c2a6825101d0
+83	406	7844798315670730	gestion_stock_autogen/timestamp	ba45df9774da10cd
+83	406	7844798315670730	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+83	406	7844798315670730	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+83	406	7844798315670730	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+414	8995	7844798318989836	CMakeFiles/gestion_stock.dir/employe.cpp.obj	e32c6f512c7eeede
+409	11863	7844798318930000	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+11864	13245	7844798433483538	gestion_stock.exe	67c1c2a6825101d0
+54	327	7844801800921849	gestion_stock_autogen/timestamp	ba45df9774da10cd
+54	327	7844801800921849	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+54	327	7844801800921849	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+54	327	7844801800921849	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+333	5557	7844801803721564	CMakeFiles/gestion_stock.dir/employe.cpp.obj	e32c6f512c7eeede
+329	7081	7844801803677791	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+7081	7784	7844801871200033	gestion_stock.exe	67c1c2a6825101d0
+69	590	7844805970055244	gestion_stock_autogen/timestamp	ba45df9774da10cd
+69	590	7844805970055244	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+69	590	7844805970055244	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+69	590	7844805970055244	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+598	8275	7844805975341110	CMakeFiles/gestion_stock.dir/employe.cpp.obj	e32c6f512c7eeede
+593	10660	7844805975291236	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+10660	11549	7844806075961922	gestion_stock.exe	67c1c2a6825101d0
+65	450	7844808866974607	gestion_stock_autogen/timestamp	ba45df9774da10cd
+65	450	7844808866974607	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+65	450	7844808866974607	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+65	450	7844808866974607	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+453	9430	7844808870854211	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+9430	10471	7844808960624051	gestion_stock.exe	67c1c2a6825101d0
+79	367	7844812237421694	gestion_stock_autogen/timestamp	ba45df9774da10cd
+79	367	7844812237421694	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+79	367	7844812237421694	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+79	367	7844812237421694	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+369	6486	7844812240323684	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+6486	7170	7844812301495698	gestion_stock.exe	67c1c2a6825101d0
+36	73	7844814248048750	CMakeFiles/clean.additional	baedbe210acaa455
+73	92	7844814248429103	clean	577b940aee94fbd7
+72	203	7844814272820405	.qt/qml_imports/gestion_stock_build.cmake	74978f8995c30f23
+72	203	7844814272820405	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qt/qml_imports/gestion_stock_build.cmake	74978f8995c30f23
+204	1663	7844814285902031	gestion_stock_autogen/timestamp	ba45df9774da10cd
+204	1663	7844814285902031	gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+204	1663	7844814285902031	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/timestamp	ba45df9774da10cd
+204	1663	7844814285902031	C:/Users/Mohamed Ghaith Neji/Desktop/QT/gestion_stock/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/gestion_stock_autogen/mocs_compilation.cpp	ba45df9774da10cd
+1682	9654	7844814287718200	CMakeFiles/gestion_stock.dir/connexion.cpp.obj	31f8563df06e139a
+1669	12016	7844814287594089	CMakeFiles/gestion_stock.dir/main.cpp.obj	566cff6d4ba09835
+1665	12107	7844814287544223	CMakeFiles/gestion_stock.dir/gestion_stock_autogen/mocs_compilation.cpp.obj	16a5a11834cb247d
+1692	12270	7844814287820193	CMakeFiles/gestion_stock.dir/employe.cpp.obj	e32c6f512c7eeede
+1688	12294	7844814287774337	CMakeFiles/gestion_stock.dir/produit.cpp.obj	4464183a2b9acc06
+1677	13894	7844814287662085	CMakeFiles/gestion_stock.dir/mainwindow.cpp.obj	b53374eed4f1624c
+13894	14565	7844814409837926	gestion_stock.exe	67c1c2a6825101d0
