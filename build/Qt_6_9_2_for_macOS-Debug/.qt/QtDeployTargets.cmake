@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_gestion_stock_FILE /Users/genix/Desktop/gestion_stock/build/Qt_6_9_2_for_macOS-Debug/gestion_stock.app/Contents/MacOS/gestion_stock)
-set(__QT_DEPLOY_TARGET_gestion_stock_TYPE EXECUTABLE)

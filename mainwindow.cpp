@@ -12,6 +12,16 @@ MainWindow::MainWindow(QWidget *parent)
     QPixmap image(":/stat.png");  // le ":" indique que c'est une ressource
     ui->labelImage->setPixmap(image);
     ui->labelImage->setScaledContents(true);
+    
+    // Load stat.jpg on all pages
+    QPixmap statImage(":/images/stat.jpg");
+    ui->labelImage_2->setPixmap(statImage);
+    ui->labelImage_2->setScaledContents(true);
+    ui->labelImage_3->setPixmap(statImage);
+    ui->labelImage_3->setScaledContents(true);
+    ui->labelImage_4->setPixmap(statImage);
+    ui->labelImage_4->setScaledContents(true);
+    
     ui->stackedWidget->setCurrentIndex(0);// page 0 par defaut
 
     // quand on clique sur le bouton login → appeler la fonction
