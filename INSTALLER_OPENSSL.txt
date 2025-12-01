@@ -1,0 +1,49 @@
+====================================================
+  INSTALLER OPENSSL POUR QT SUR WINDOWS
+====================================================
+
+PROBLÈME:
+L'erreur "QSslSocket: cannot call unresolved function" signifie
+que les DLL OpenSSL ne sont pas trouvées par Qt.
+
+SOLUTION:
+
+1. TÉLÉCHARGER OPENSSL
+   --------------------------------------------------
+   Allez sur: https://slproweb.com/products/Win32OpenSSL.html
+   
+   Téléchargez selon votre version Qt:
+   - Pour Qt 64-bit: "Win64 OpenSSL v1.1.1x Light"
+   - Pour Qt 32-bit: "Win32 OpenSSL v1.1.1x Light"
+
+2. INSTALLER OPENSSL
+   --------------------------------------------------
+   - Exécutez l'installateur téléchargé
+   - Acceptez les paramètres par défaut
+   - Installation dans: C:\Program Files\OpenSSL-Win64\
+
+3. COPIER LES DLL DANS LE DOSSIER Qt
+   --------------------------------------------------
+   Copiez ces 2 fichiers depuis:
+   C:\Program Files\OpenSSL-Win64\bin\
+   
+   Vers le dossier de votre application:
+   C:\Users\Raouf\Desktop\projetqt\build\Desktop_Qt_6_10_1_MinGW_64_bit-Debug\debug\
+   
+   Fichiers à copier:
+   - libssl-1_1-x64.dll
+   - libcrypto-1_1-x64.dll
+
+4. ALTERNATIVE: Ajouter au PATH système
+   --------------------------------------------------
+   Ou ajoutez au PATH système:
+   C:\Program Files\OpenSSL-Win64\bin
+
+5. RELANCER L'APPLICATION
+   --------------------------------------------------
+   Après avoir copié les DLL, relancez votre application.
+
+====================================================
+REMARQUE: Si vous utilisez Qt 5.x, les noms des DLL
+peuvent être différents (ssleay32.dll et libeay32.dll)
+====================================================

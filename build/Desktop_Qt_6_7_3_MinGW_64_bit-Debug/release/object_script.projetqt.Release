@@ -1,0 +1,16 @@
+release/main.o
+release/mainwindow.o
+release/saliare.o
+release/connection.o
+release/logindialog.o
+release/smtpclient.o
+release/gmailclient.o
+release/smsclient.o
+release/forgotpassworddialog.o
+release/moc_mainwindow.o
+release/moc_saliare.o
+release/moc_logindialog.o
+release/moc_smtpclient.o
+release/moc_gmailclient.o
+release/moc_smsclient.o
+release/moc_forgotpassworddialog.o
