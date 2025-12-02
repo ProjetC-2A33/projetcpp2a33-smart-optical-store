@@ -1,60 +1,38 @@
 #include "connexion.h"
+#include <QSqlError>
+#include <QMessageBox>
+#include <QDebug>
 
-// ***** Constructeur *****
-// Initialise la connexion avec les paramètres de la base de données
-Connection::Connection() {
-    // Using QOCI (Oracle Call Interface) - no ODBC driver needed!
-    db = QSqlDatabase::addDatabase("QOCI");
+Connection::Connection()
+{
 }
 
-// ***** Destructeur *****
-// Ferme la connexion si elle est encore ouverte lorsque l'objet est détruit
-Connection::~Connection() {
-    if (db.isOpen())
-        db.close();
-}
-
-// ***** Méthode statique *****
-// Retourne une instance unique (singleton)
-Connection& Connection::createInstance() {
-    static Connection instance; // Unique instance (C++11 garantit la sécurité des threads)
-    return instance;
-}
-
-// ***** Méthode d'ouverture de la connexion *****
-bool Connection::createConnection () {
-    // Check if database is already added
-    if (!QSqlDatabase::contains("qt_sql_default_connection")) {
-        db = QSqlDatabase::addDatabase("QOCI");  // Direct Oracle connection!
-    } else {
-        db = QSqlDatabase::database();
+bool Connection::createconnect()
+{
+    // Vérifie d'abord si une connexion existe déjà
+    if (QSqlDatabase::contains("qt_sql_default_connection")) {
+        QSqlDatabase db = QSqlDatabase::database("qt_sql_default_connection");
+        if (db.isOpen()) {
+            qDebug() << "Connexion déjà ouverte";
+            return true;
+        }
     }
 
-    // ========================================
-    // CONFIGURATION: Change these for your user!
-    // ========================================
-    // Option 1: gestion_user (your current user) - ACTIVE
-    // Format: hostname:port/servicename for pluggable database
-    db.setDatabaseName("localhost:1521/xepdb1");  // Full connection string
-    db.setUserName("gestion_user");               // Your username
-    db.setPassword("123456789.mii");              // Your password
+    /*// Crée une nouvelle connexion
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+    db.setDatabaseName("smartoptic");
+    db.setUserName("system");
+    db.setPassword("Sou16022005@");*/
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+    db.setDatabaseName("Driver={Oracle in XE};Dbq=XE;Uid=system;Pwd=Sou16022005@;");
 
-    // Option 2: ghaith user (your friend's user) - uncomment lines below
-    // db.setDatabaseName("localhost:1521/XE");  // XE is the SID (old format)
-    // db.setUserName("ghaith");
-    // db.setPassword("esprit25");
-    // ========================================
-
-    qDebug() << "🔌 Tentative de connexion à Oracle...";
-    qDebug() << "   Database:" << db.databaseName();
-    qDebug() << "   User:" << db.userName();
-
-    if (!db.open()) {
-        qDebug() << "❌ ERREUR de connexion :" << db.lastError().text();
-        qDebug() << "❌ Driver QOCI disponible?" << QSqlDatabase::isDriverAvailable("QOCI");
+    if (db.open()) {
+        qDebug() << "Connexion à la base de données réussie";
+        return true;
+    } else {
+        qDebug() << "Échec de connexion:" << db.lastError().text();
+        QMessageBox::critical(nullptr, "Erreur de connexion",
+                              "Impossible de se connecter à la base de données:\n" + db.lastError().text());
         return false;
     }
-
-    qDebug() << "✅✅✅ Connexion Oracle réussie !";
-    return true;
 }

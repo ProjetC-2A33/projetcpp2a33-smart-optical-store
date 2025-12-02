@@ -1,0 +1,10 @@
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/gestion_stock.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/gestion_stock_qmlimportscan.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/gestion_stock_autogen_timestamp_deps.dir
+C:/Users/douai/Downloads/projetcpp2a33-smart-optical-store-integration-yassin/projetcpp2a33-smart-optical-store-integration-yassin/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/gestion_stock_autogen.dir

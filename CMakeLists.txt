@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql Network PrintSupport)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Network PrintSupport)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql Network PrintSupport charts)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Network PrintSupport charts )
 
 set(PROJECT_SOURCES
         main.cpp
@@ -30,7 +30,7 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql Network PrintSupport)
+    find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql Network PrintSupport charts)
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Quick)
 
     qt_add_executable(gestion_stock
@@ -52,7 +52,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(gestion_stock PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::PrintSupport)
+target_link_libraries(gestion_stock PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::PrintSupport Qt${QT_VERSION_MAJOR}::Charts)
 target_link_libraries(gestion_stock PRIVATE Qt6::Core Qt6::Widgets Qt6::Quick)
 
 if(${QT_VERSION} VERSION_LESS 6.1.0)

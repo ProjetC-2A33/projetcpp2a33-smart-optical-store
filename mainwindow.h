@@ -7,6 +7,32 @@
 #include "fournisseur.h"
 #include "client.h"
 
+
+#include <QDialog>
+#include <QTimer>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include "client.h"
+#include <QtNetwork/QTcpServer>
+#include <QtNetwork/QTcpSocket>
+#include <QList>
+#include <QByteArray>
+#include <QString>
+#include <QMessageBox>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QSqlQueryModel>
+#include <QInputDialog>
+#include <QLabel>
+#include <QVBoxLayout>
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -16,6 +42,8 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QSqlQueryModel *sortBySalaireAsc();
+    QSqlQueryModel *sortBySalaireDesc();
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -84,41 +112,46 @@ private slots:
     void afficherFournisseurs();
     void viderChampsFournisseur();
 
-    // CRUD Client
-    void on_btnAjouterClient_clicked();
-    void on_btnModifierClient_clicked();
-    void on_btnSupprimerClient_clicked();
-    void on_pushButton_10_clicked(); // Rechercher un client
-    void on_tableWidgetClients_itemClicked(QTableWidgetItem *item);
-    void afficherClients();
-    void viderChampsClient();
-    
-    // Additional Buttons (Stock/Produit page)
-    void on_pushButton_4_clicked();  // TRI Produits
-    void on_pushButton_5_clicked();  // Recherche Produits
-    void on_pushButton_3_clicked();  // Export PDF
-    void on_pushButton_22_clicked(); // Upload Image
-    
-    // Client page advanced
-    void on_pushButton_11_clicked(); // TRI clients
-    void on_pushButton_33_clicked(); // PDF clients
-    void on_pushButton_12_clicked(); // Statut fidélité
-    void on_pushButton_13_clicked(); // Historique médical
-    
-    // Sponsor buttons
-    void on_pushButton_23_clicked(); // Ajouter Sponsor
-    void on_pushButton_24_clicked(); // Afficher Sponsors
-    void on_pushButton_27_clicked(); // Modifier Sponsor
-    void on_pushButton_29_clicked(); // Supprimer Sponsor
-    void on_pushButton_30_clicked(); // Statu Sponsor
-    void on_pushButton_26_clicked(); // Recommandation automatique
 
+    
+
+    
+
+
+
+
+    void on_pb_supprimer_clicked();
+    void on_pb_modifier_2_clicked();
+    void on_pb_ajouter_clicked();
+    void handleMessageBoxResult(int result);
+    void refreshTable();
+    void on_tab_clients_clicked(const QModelIndex &index);
+    void refreshTable(QSqlQueryModel *model);
+    void on_refrech_pb_clicked();
+    void on_Imprimer_clicked();
+    void on_pb_pdf_clicked();
+    void on_pb_word_clicked();
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_tableWidget_c_cellClicked(int row, int column);
+    void on_comboBox_tri_currentIndexChanged(int index);
+    void on_search_textChanged(const QString &text);
+    void on_stats_clicked();
+    void envoyerSMS(const QString& telephone, const QString& message);
+    void onSMSReply(QNetworkReply *reply);
+    void on_pushButton_envoyerSMS_clicked();
+    void on_pb_history_clicked();
+   void updateStatsLabel();
+    QPointF calculatePointOnCircle(QPointF center, double radius, double angleDegrees);
 private:
     Ui::MainWindow *ui;
     Produit produitTemp;
     Employe employeTemp;
     Fournisseur fournisseurTemp;
-    Client clientTemp;
+    Clients clientTemp;
+    QNetworkAccessManager *networkManager;
+    QString infobipApiKey = "2f7a7cd6ff27df26631851d4386b5575-d4645e64-39c3-469c-aafd-26a0fe1162c4 ";
+    QString infobipBaseUrl = "https://nmvl3e.api.infobip.com";
 };
 
 #endif // MAINWINDOW_H

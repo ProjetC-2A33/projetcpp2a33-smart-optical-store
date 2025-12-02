@@ -1,51 +1,80 @@
-#ifndef CLIENT_H
-#define CLIENT_H
+#ifndef CLIENTS_H
+#define CLIENTS_H
 
 #include <QString>
-#include <QSqlQuery>
 #include <QSqlQueryModel>
-#include <QDebug>
-#include <QTableWidget>
 
-class Client
+class Clients
 {
 private:
-    int CIN;
-    QString PRENOM;
-    QString NOM;
-    QString EMAIL;
-    QString TELEPHONE;
-    QString ADRESSE;
-    QString SEXE;
+    QString cin;
+    QString nom;
+    QString prenom;
+    QString adresse;
+    QString tel;
+    QString email;
+    QString sexe;
+    QString historique;
+    bool    statutFidelite;
+
+    static bool logAction(const QString& cin, const QString& actionType,
+                          const QString& oldValues = "", const QString& newValues = "");
 
 public:
-    Client();
+    // === Constructeurs ===
+    Clients();
+    Clients(const QString &cin,
+            const QString &nom,
+            const QString &prenom,
+            const QString &adresse,
+            const QString &tel,
+            const QString &email,
+            const QString &sexe,
+            const QString &historique,
+            bool statutFidelite);
 
-    // Setters
-    void setCIN(int cin) { this->CIN = cin; }
-    void setPRENOM(QString prenom) { this->PRENOM = prenom; }
-    void setNOM(QString nom) { this->NOM = nom; }
-    void setEMAIL(QString email) { this->EMAIL = email; }
-    void setTELEPHONE(QString tel) { this->TELEPHONE = tel; }
-    void setADRESSE(QString adresse) { this->ADRESSE = adresse; }
-    void setSEXE(QString sexe) { this->SEXE = sexe; }
+    static QSqlQueryModel* getHistory();
+    static bool clearHistory();
+    // === Getters ===
+    QString getCin()            const { return cin; }
+    QString getNom()            const { return nom; }
+    QString getPrenom()         const { return prenom; }
+    QString getAdresse()        const { return adresse; }
+    QString getTel()            const { return tel; }
+    QString getEmail()          const { return email; }
+    QString getSexe()           const { return sexe; }
+    QString getHistorique()     const { return historique; }
+    bool    isFidelite()        const { return statutFidelite; }
 
-    // Getters
-    int getCIN() const { return CIN; }
-    QString getPRENOM() const { return PRENOM; }
-    QString getNOM() const { return NOM; }
-    QString getEMAIL() const { return EMAIL; }
-    QString getTELEPHONE() const { return TELEPHONE; }
-    QString getADRESSE() const { return ADRESSE; }
-    QString getSEXE() const { return SEXE; }
+    // === Setters ===
+    void setCin(const QString &c)            { cin = c; }
+    void setNom(const QString &n)            { nom = n; }
+    void setPrenom(const QString &p)         { prenom = p; }
+    void setAdresse(const QString &a)        { adresse = a; }
+    void setTel(const QString &t)            { tel = t; }
+    void setEmail(const QString &e)          { email = e; }
+    void setSexe(const QString &s)           { sexe = s; }
+    void setHistorique(const QString &h)     { historique = h; }
+    void setFidelite(bool f)                 { statutFidelite = f; }
 
-    // Méthodes CRUD
+    // === Database operations ===
     bool ajouter();
-    void remplirTableWidget(QTableWidget *tableWidget);
-    bool supprimer(int cin);
-    bool modifier(int cin);
+    QSqlQueryModel* afficher();
+    static bool supprimer(const QString &cin);
+    bool modifier();
+
+    // === Vérification d'unicité ===
+    static bool cinExiste(const QString &cin,
+                          const QString &cinActuel = "");
+    static bool emailExiste(const QString &email,
+                            const QString &cinActuel = "");
+
+    // === Fonctions demandées (Trier, Rechercher, PDF) ===
+    static QSqlQueryModel* rechercher(const QString &critere);
+    static QSqlQueryModel* trier(const QString &colonne, const QString &ordre);
+    static bool exportPDF(const QString &filePath);
+    static QSqlQueryModel* trierParCritere(const QString &critere, const QString &ordre = "");
+
 };
 
-#endif // CLIENT_H
-
-
+#endif // CLIENTS_H
