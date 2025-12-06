@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/4400629.png</file>
+        <file>img/415260602_915404969798523_5173262210140723394_n.png</file>
+        <file>img/415287996_755433109383168_7582230033290630906_n.png</file>
+        <file>img/415327179_385681727386246_4607154393480602269_n-removebg-preview.png</file>
+        <file>img/415366346_1746257945859861_8686726138527086848_n.png</file>
+        <file>img/416292670_3794500400771269_1208507470978779720_n-removebg-preview.png</file>
+        <file>img/416322058_1151869056186867_7815397858715591504_n.png</file>
+        <file>img/416367155_405697508660476_2555299793713393682_n-removebg-preview.png</file>
+        <file>img/416368571_906095227681180_9098143267016132972_n.png</file>
+        <file>img/416387957_1461190647815249_568358904637209358_n.jpg</file>
+        <file>img/416425371_3569307993320979_2883648058955802668_n-removebg-preview.png</file>
+        <file>img/416429857_393189109870978_924880704521006536_n-removebg-preview.png</file>
+        <file>img/416452678_746471023778985_7893500271021333890_n-removebg-preview.png</file>
+        <file>img/416459250_315717640923764_1336639996603402517_n-removebg-preview.png</file>
+        <file>img/416646351_1364757890904706_7725974451638454762_n.jpg</file>
+        <file>img/bakcground.jpg</file>
+        <file>img/ball.jpg</file>
+        <file>img/gearr.png</file>
+        <file>img/gerr.png</file>
+        <file>img/img.jpg</file>
+        <file>img/Logo QT.png</file>
+        <file>img/padlock.png</file>
+        <file>img/sqdzq.png</file>
+        <file>img/user_747376.png</file>
+        <file>img/WAVE.jpg</file>
+        <file>img/429639810_2108445129516567_509749433267068213_n.jpg</file>
+        <file>img/429772654_7200720023353377_8218652784282715328_n.jpg</file>
+        <file>img/sports-nautiques.jpg</file>
+        <file>img/359ebc47e50f4fe8989dfc1d288af6ac.png</file>
+        <file>img/99484734571a59fde41fc712a14c32c3.png</file>
+        <file>img/Clientmanage.png</file>
+        <file>img/logo1.png</file>
+        <file>img/logout.png</file>
+        <file>img/Sidebar.png</file>
+        <file>img/Sidebar2.png</file>
+        <file>img/wallpaperflare.com_wallpaper.jpg</file>
+        <file>img/try.png</file>
+        <file>img/try1.png</file>
+        <file>img/1280px-HD_transparent_picture.png</file>
+    </qresource>
+</RCC>
