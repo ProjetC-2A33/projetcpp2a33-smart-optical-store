@@ -496,8 +496,46 @@ QProgressBar::chunk {
 
 
 
+    if (ui->pushButton_11) {
+        qDebug() << "pushButton_11 found!";
+        qDebug() << "Button text:" << ui->pushButton_11->text();
+        qDebug() << "Button enabled:" << ui->pushButton_11->isEnabled();
+        qDebug() << "Button visible:" << ui->pushButton_11->isVisible();
 
+        // Force enable and show
+        ui->pushButton_11->setEnabled(true);
+        ui->pushButton_11->show();
 
+        // Test connection
+        bool connected = connect(ui->pushButton_11, &QPushButton::clicked,
+                                 this, &MainWindow::on_pushButton_11_clicked);
+
+        qDebug() << "Connection result:" << connected;
+
+        // Test alternative connection
+        if (!connected) {
+            qDebug() << "Trying alternative connection...";
+            connected = QObject::connect(ui->pushButton_11, SIGNAL(clicked()),
+                                         this, SLOT(on_pushButton_11_clicked()));
+            qDebug() << "Alternative connection:" << connected;
+        }
+QTimer::singleShot(100, this, &MainWindow::checkUI);
+        // Add test signal
+        QObject::connect(ui->pushButton_11, &QPushButton::pressed,
+                         [](){ qDebug() << "Button pressed signal emitted!"; });
+
+    } else {
+        qDebug() << "ERROR: pushButton_11 NOT FOUND!";
+
+        // List all buttons
+        QList<QPushButton*> buttons = this->findChildren<QPushButton*>();
+        qDebug() << "All buttons found:" << buttons.size();
+        for (QPushButton* btn : buttons) {
+            qDebug() << "Button:" << btn->objectName() << "Text:" << btn->text();
+        }
+    }
+
+    qDebug() << "=== Constructor finished ===";
 
     // Navigation depuis la page Stock (index 1)
     connect(ui->btnGestionClients_PageStock, &QPushButton::clicked, this, &MainWindow::on_btnGestionClients_PageStock_clicked);
@@ -2654,17 +2692,10 @@ void MainWindow::on_lineEdit_textChanged(const QString &arg1)
     refreshTable(model);
 }
 
-
 void MainWindow::on_pb_pdf_clicked()
 {
-    QString filePath = QFileDialog::getSaveFileName(this, "Exporter en PDF", "", "Fichiers PDF (*.pdf)");
 
-    if (!filePath.isEmpty()) {
-        // Implement PDF export functionality here
-        QMessageBox::information(this, "PDF", "Export PDF - À implémenter");
-    }
 }
-
 void MainWindow::handleMessageBoxResult(int result)
 {
     if (result == QMessageBox::Cancel) {
@@ -3339,3 +3370,154 @@ QPointF MainWindow::calculatePointOnCircle(QPointF center, double radius, double
     double y = center.y() + radius * sin(angleRadians);
     return QPointF(x, y);
 }
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    qDebug() << "=== DEBUG: on_pushButton_11_clicked() CALLED ===";
+
+    // Test 1: Show message box
+    QMessageBox::information(this, "DEBUG",
+                             "Button 11 clicked!\n"
+                             "Function is executing...\n"
+                             "Now testing database connection.");
+
+    // Test 2: Check database connection
+    QSqlDatabase db = QSqlDatabase::database();
+    qDebug() << "Database open:" << db.isOpen();
+    qDebug() << "Database error:" << db.lastError().text();
+
+    if (!db.isOpen()) {
+        QMessageBox::critical(this, "Database Error",
+                              "Database is not connected!\n"
+                              "Error: " + db.lastError().text());
+        return;
+    }
+
+    // Test 3: Try to get history data
+    qDebug() << "Calling Clients::getHistory()...";
+    QSqlQueryModel *historyModel = Clients::getHistory();
+
+    if (!historyModel) {
+        qDebug() << "historyModel is NULL";
+        QMessageBox::warning(this, "Data Error",
+                             "Failed to get history data.\n"
+                             "Model is NULL.");
+        return;
+    }
+
+    qDebug() << "History model row count:" << historyModel->rowCount();
+    qDebug() << "History model column count:" << historyModel->columnCount();
+
+    // Test 4: Show data summary
+    QMessageBox::information(this, "Data Test",
+                             QString("History data loaded:\n"
+                                     "Rows: %1\n"
+                                     "Columns: %2\n\n"
+                                     "Now testing file dialog...")
+                                 .arg(historyModel->rowCount())
+                                 .arg(historyModel->columnCount()));
+
+    // Test 5: Test file dialog
+    qDebug() << "Testing file dialog...";
+    QString fileName = QFileDialog::getSaveFileName(
+        this,
+        "Test File Dialog",
+        QDir::homePath() + "/test.pdf",
+        "PDF Files (*.pdf)"
+        );
+
+    qDebug() << "File dialog returned:" << fileName;
+
+    if (fileName.isEmpty()) {
+        QMessageBox::information(this, "File Dialog",
+                                 "User cancelled file selection.");
+    } else {
+        QMessageBox::information(this, "File Dialog",
+                                 "Selected file:\n" + fileName);
+
+        // Test 6: Try to create a simple PDF
+        qDebug() << "Creating simple PDF...";
+        QPdfWriter pdfWriter(fileName);
+        pdfWriter.setPageSize(QPageSize(QPageSize::A4));
+
+        QPainter painter(&pdfWriter);
+        if (painter.isActive()) {
+            painter.setFont(QFont("Arial", 20));
+            painter.drawText(100, 100, "TEST PDF - Button 11 Works!");
+            painter.end();
+
+            QMessageBox::information(this, "PDF Test",
+                                     "Simple PDF created successfully!\n"
+                                     "File: " + fileName);
+        } else {
+            QMessageBox::critical(this, "PDF Error",
+                                  "Failed to create PDF.\n"
+                                  "Painter not active.");
+        }
+    }
+
+    delete historyModel;
+    qDebug() << "=== DEBUG: Function finished ===";
+}
+void MainWindow::checkUI()
+{
+    qDebug() << "\n=== Checking UI ===";
+
+    // Check all widgets
+    QList<QWidget*> widgets = findChildren<QWidget*>();
+    qDebug() << "Total widgets:" << widgets.size();
+
+    // Check all buttons
+    QList<QPushButton*> buttons = findChildren<QPushButton*>();
+    qDebug() << "Total buttons:" << buttons.size();
+
+    for (QPushButton* btn : buttons) {
+        qDebug() << "Button:" << btn->objectName()
+        << "Text:" << btn->text()
+        << "Enabled:" << btn->isEnabled()
+        << "Visible:" << btn->isVisible()
+        << "Geometry:" << btn->geometry();
+    }
+
+    // Specifically check pushButton_11
+    QPushButton* btn11 = findChild<QPushButton*>("pushButton_11");
+    if (btn11) {
+        qDebug() << "\nFound pushButton_11:";
+        qDebug() << "Parent:" << (btn11->parent() ? btn11->parent()->objectName() : "NULL");
+        qDebug() << "Is in layout:" << (btn11->parentWidget() ?
+                                            btn11->parentWidget()->layout() != nullptr : false);
+
+        // Try to click programmatically
+        qDebug() << "Testing programmatic click...";
+        QTimer::singleShot(1000, btn11, [btn11](){
+            qDebug() << "Attempting to click button...";
+            btn11->click();
+        });
+    } else {
+        qDebug() << "\nERROR: pushButton_11 not found by name!";
+
+        // Look for any button with similar text
+        for (QPushButton* btn : buttons) {
+            if (btn->text().contains("PDF", Qt::CaseInsensitive) ||
+                btn->text().contains("Export", Qt::CaseInsensitive) ||
+                btn->text().contains("11", Qt::CaseInsensitive)) {
+                qDebug() << "Possible match:" << btn->objectName() << "Text:" << btn->text();
+            }
+        }
+    }
+
+    qDebug() << "=== UI Check Complete ===\n";
+}
+
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+}
+
+
+void MainWindow::on_btnLogin_clicked()
+{
+
+}
+

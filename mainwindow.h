@@ -143,6 +143,16 @@ private slots:
     void on_pb_history_clicked();
    void updateStatsLabel();
     QPointF calculatePointOnCircle(QPointF center, double radius, double angleDegrees);
+
+   void checkUI();
+    void on_pushButton_11_clicked();
+
+
+
+    void on_pushButton_6_clicked();
+
+    void on_btnLogin_clicked();
+
 private:
     Ui::MainWindow *ui;
     Produit produitTemp;
@@ -150,7 +160,7 @@ private:
     Fournisseur fournisseurTemp;
     Clients clientTemp;
     QNetworkAccessManager *networkManager;
-    QString infobipApiKey = "2f7a7cd6ff27df26631851d4386b5575-d4645e64-39c3-469c-aafd-26a0fe1162c4 ";
+   QString infobipApiKey = "159d83b9b9b5d72146befb991fe14eba-c3993467-3f30-4564-b7c7-5fdbd4edd91a";
     QString infobipBaseUrl = "https://nmvl3e.api.infobip.com";
 };
 

@@ -131,7 +131,7 @@ QGroupBox::title {
 &lt;/property&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -851,8 +851,8 @@ QGroupBox::title {
      <widget class="QLabel" name="label_59">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>370</y>
+        <x>520</x>
+        <y>520</y>
         <width>251</width>
         <height>71</height>
        </rect>
@@ -936,22 +936,6 @@ QGroupBox::title {
       </property>
       <property name="scaledContents">
        <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_10">
-      <property name="geometry">
-       <rect>
-        <x>1010</x>
-        <y>460</y>
-        <width>90</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 0, 136);</string>
-      </property>
-      <property name="text">
-       <string>log out </string>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_6">
@@ -1268,7 +1252,7 @@ background-color: rgb(21, 21, 21);</string>
         <string notr="true">background-color: rgb(0, 0, 136);</string>
        </property>
        <property name="text">
-        <string>Rechercher un client</string>
+        <string>PDF</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_5">
@@ -1426,8 +1410,8 @@ background-color: rgb(0, 0, 136);</string>
      <widget class="QLabel" name="statslabel">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>500</y>
+        <x>530</x>
+        <y>520</y>
         <width>361</width>
         <height>211</height>
        </rect>
@@ -3594,12 +3578,12 @@ QPushButton:pressed {
        <string>LogOut</string>
       </property>
      </widget>
+     <zorder>comboBox_9</zorder>
      <zorder>label_98</zorder>
      <zorder>lineEdit_telephone</zorder>
      <zorder>label_99</zorder>
      <zorder>lineEdit_adresse</zorder>
      <zorder>btnCallFournisseur</zorder>
-     <zorder>comboBox_9</zorder>
      <zorder>label_91</zorder>
      <zorder>lineEdit_37</zorder>
      <zorder>label_92</zorder>

@@ -1,0 +1,10 @@
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/gestion_stock.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/gestion_stock_qmlimportscan.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/edit_cache.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/rebuild_cache.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/list_install_components.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/install.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/install/local.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/install/strip.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/gestion_stock_autogen_timestamp_deps.dir
+C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/CMakeFiles/gestion_stock_autogen.dir

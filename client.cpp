@@ -410,45 +410,208 @@ QSqlQueryModel* Clients::trier(const QString &colonne, const QString &ordre)
 
 bool Clients::exportPDF(const QString &filePath)
 {
-    QSqlQuery query("SELECT CIN, NOM, PRENOM, ADRESSE, TEL, EMAIL, SEXE, HISTORIQUE, STATUTFIDELITE FROM GESTIONCL2");
+    try {
+        // Create PDF writer
+        QPdfWriter pdfWriter(filePath);
+        pdfWriter.setPageSize(QPageSize(QPageSize::A4));
+        pdfWriter.setPageOrientation(QPageLayout::Portrait);
+        pdfWriter.setTitle("Liste des Clients");
+        pdfWriter.setCreator("Gestion Client Application");
 
-    if (!query.exec()) {
-        qDebug() << "Erreur export PDF :" << query.lastError().text();
+        QPainter painter;
+        if (!painter.begin(&pdfWriter)) {
+            qDebug() << "Failed to initialize painter for PDF";
+            return false;
+        }
+
+        // Set up fonts
+        QFont titleFont("Arial", 16, QFont::Bold);
+        QFont headerFont("Arial", 10, QFont::Bold);
+        QFont dataFont("Arial", 8);
+        QFont infoFont("Arial", 9);
+Clients client;
+        // Get data from database
+        QSqlQueryModel* model = client.afficher();
+        if (!model) {
+            painter.end();
+            qDebug() << "Failed to get data from database";
+            return false;
+        }
+
+        int rowCount = model->rowCount();
+        int columnCount = model->columnCount();
+
+        // PDF settings
+        int yPos = 100;
+        const int lineHeight = 20;
+        const int margin = 50;
+        const int pageWidth = pdfWriter.width() - 2 * margin;
+
+        // Draw title
+        painter.setFont(titleFont);
+        painter.setPen(Qt::darkBlue);
+        painter.drawText(margin, yPos, "📋 LISTE DES CLIENTS");
+        yPos += 40;
+
+        // Draw date and info
+        painter.setFont(infoFont);
+        painter.setPen(Qt::black);
+        painter.drawText(margin, yPos, "Date d'export: " + QDate::currentDate().toString("dd/MM/yyyy"));
+        painter.drawText(pdfWriter.width() - margin - 200, yPos, "Total: " + QString::number(rowCount) + " clients");
+        yPos += 30;
+
+        // Draw table headers
+        painter.setFont(headerFont);
+        painter.setBrush(QBrush(QColor(52, 152, 219))); // Blue background
+        painter.setPen(QPen(Qt::white));
+
+        // Column widths
+        QList<int> colWidths = {
+            100,  // CIN
+            120,  // Nom
+            120,  // Prénom
+            120,  // Téléphone
+            200,  // Email
+            80    // Statut
+        };
+
+        int currentX = margin;
+
+        // Draw header background
+        painter.drawRect(margin, yPos, pageWidth, lineHeight);
+
+        // Draw header text
+        QStringList headers = {"CIN", "Nom", "Prénom", "Téléphone", "Email", "Statut Fidélité"};
+
+        for (int col = 0; col < headers.size() && col < colWidths.size(); ++col) {
+            painter.drawText(currentX + 5, yPos + 5, colWidths[col] - 10, lineHeight - 10,
+                             Qt::AlignLeft | Qt::AlignVCenter, headers[col]);
+            currentX += colWidths[col];
+        }
+
+        yPos += lineHeight;
+
+        // Reset pen for data
+        painter.setPen(QPen(Qt::black));
+        painter.setBrush(QBrush(Qt::NoBrush));
+
+        // Draw table data
+        painter.setFont(dataFont);
+
+        // Get all data from database (more efficient than using model for each cell)
+        QSqlQuery query("SELECT CIN, NOM, PRENOM, TEL, EMAIL, STATUTFIDELITE FROM GESTIONCL2 ORDER BY NOM");
+        int currentRow = 0;
+
+        while (query.next()) {
+            // Check if we need a new page
+            if (yPos > pdfWriter.height() - 100) {
+                pdfWriter.newPage();
+                yPos = 100;
+
+                // Redraw header on new page
+                painter.setFont(headerFont);
+                painter.setBrush(QBrush(QColor(52, 152, 219)));
+                painter.setPen(QPen(Qt::white));
+                painter.drawRect(margin, yPos, pageWidth, lineHeight);
+
+                currentX = margin;
+                for (int col = 0; col < headers.size() && col < colWidths.size(); ++col) {
+                    painter.drawText(currentX + 5, yPos + 5, colWidths[col] - 10, lineHeight - 10,
+                                     Qt::AlignLeft | Qt::AlignVCenter, headers[col]);
+                    currentX += colWidths[col];
+                }
+
+                yPos += lineHeight;
+                painter.setPen(QPen(Qt::black));
+                painter.setBrush(QBrush(Qt::NoBrush));
+                painter.setFont(dataFont);
+            }
+
+            // Draw row background (alternating colors for readability)
+            if (currentRow % 2 == 0) {
+                painter.setBrush(QBrush(QColor(240, 240, 240)));
+            } else {
+                painter.setBrush(QBrush(Qt::white));
+            }
+
+            painter.drawRect(margin, yPos, pageWidth, lineHeight);
+            painter.setBrush(QBrush(Qt::NoBrush));
+
+            // Draw cell data
+            currentX = margin;
+
+            for (int col = 0; col < 6; ++col) {
+                QString data;
+                if (col < 5) {
+                    data = query.value(col).toString();
+                } else {
+                    // Last column is fidelity status
+                    bool isFidele = query.value(5).toBool();
+                    data = isFidele ? "✓ Fidèle" : "Non fidèle";
+                    if (isFidele) {
+                        painter.setPen(QPen(Qt::darkGreen));
+                    } else {
+                        painter.setPen(QPen(Qt::darkRed));
+                    }
+                }
+
+                painter.drawText(currentX + 5, yPos + 5, colWidths[col] - 10, lineHeight - 10,
+                                 Qt::AlignLeft | Qt::AlignVCenter, data);
+
+                // Reset pen color for next cell
+                if (col == 5) {
+                    painter.setPen(QPen(Qt::black));
+                }
+
+                currentX += colWidths[col];
+            }
+
+            yPos += lineHeight;
+            currentRow++;
+        }
+
+        // Draw summary at bottom
+        yPos += 30;
+        painter.setFont(headerFont);
+        painter.setPen(QPen(Qt::darkBlue));
+
+        int fideleCount = 0;
+        QSqlQuery countQuery("SELECT COUNT(*) FROM GESTIONCL2 WHERE STATUTFIDELITE = 1");
+        if (countQuery.exec() && countQuery.next()) {
+            fideleCount = countQuery.value(0).toInt();
+        }
+
+        painter.drawText(margin, yPos, "RÉSUMÉ:");
+        yPos += 20;
+        painter.setFont(infoFont);
+        painter.setPen(QPen(Qt::black));
+        painter.drawText(margin, yPos, "• Total clients: " + QString::number(rowCount));
+        yPos += 15;
+        painter.drawText(margin, yPos, "• Clients fidèles: " + QString::number(fideleCount));
+        yPos += 15;
+        painter.drawText(margin, yPos, "• Taux de fidélité: " +
+                                           (rowCount > 0 ? QString::number((fideleCount * 100.0) / rowCount, 'f', 1) + "%" : "0%"));
+
+        // Draw footer
+        yPos = pdfWriter.height() - 50;
+        painter.setFont(QFont("Arial", 7));
+        painter.setPen(QPen(Qt::gray));
+        painter.drawText(margin, yPos, "Document généré par Gestion Client Application - " +
+                                           QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss"));
+
+        painter.end();
+        delete model;
+
+        qDebug() << "PDF exporté avec succès:" << filePath;
+        return true;
+
+    } catch (const std::exception &e) {
+        qDebug() << "Erreur export PDF:" << e.what();
+        return false;
+    } catch (...) {
+        qDebug() << "Erreur inconnue lors de l'export PDF";
         return false;
     }
-
-    QPdfWriter pdf(filePath);
-    pdf.setPageSize(QPageSize(QPageSize::A4));
-    pdf.setPageMargins(QMarginsF(15, 15, 15, 15));
-
-    QPainter painter(&pdf);
-    int y = 100;
-
-    painter.setFont(QFont("Arial", 12));
-    painter.drawText(100, y, "Liste des clients");
-    y += 50;
-
-    painter.setFont(QFont("Arial", 8));
-
-    while (query.next()) {
-        QString line =
-            "CIN: " + query.value(0).toString() +
-            " | Nom: " + query.value(1).toString() +
-            " | Prenom: " + query.value(2).toString() +
-            " | Tel: " + query.value(4).toString();
-
-        painter.drawText(100, y, line);
-
-        y += 30;
-
-        if (y > pdf.height() - 100) {
-            pdf.newPage();
-            y = 100;
-        }
-    }
-
-    painter.end();
-    return true;
 }
 QSqlQueryModel* Clients::trierParCritere(const QString &critere, const QString &ordre)
 {
