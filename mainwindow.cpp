@@ -42,6 +42,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->setupUi(this);
+    //arduino
+    arduino1 = new Arduino1(this);
+
+    if (arduino1->connectArduino()) {
+        connect(arduino1, &Arduino1::codeReceived,
+                this, &MainWindow::handleCodeFromKeypad);
+    }
+
+
     // Dans MainWindow::MainWindow(), après ui->setupUi(this);
     connect(ui->tableWidget, &QTableWidget::itemClicked, this, &MainWindow::on_tableWidget_itemClicked);
     this->setStyleSheet(R"(
@@ -3519,5 +3528,60 @@ void MainWindow::on_pushButton_6_clicked()
 void MainWindow::on_btnLogin_clicked()
 {
 
+}
+void MainWindow::handleCodeFromKeypad(QString code)
+{
+    // Nettoyage du code provenant d’Arduino
+    code = code.trimmed();
+    code.remove('#');
+
+    qDebug() << "RECU DU CLAVIER:" << code;
+
+    // Vérifier que le code est bien un nombre
+    bool ok;
+    int id = code.toInt(&ok);
+
+    if (!ok) {
+        qDebug() << "INVALID CODE (not a number)";
+        arduino1->sendToArduino("NOK#");
+        return;
+    }
+
+    // Vérification dans la base
+    QSqlQuery q;
+    q.prepare("SELECT EMPLACEMENT FROM FOURNISSEUR WHERE ID_FOURNISSEUR = :id");
+    q.bindValue(":id", id);
+
+    if (q.exec() && q.next()) {
+
+        QString emplacement = q.value(0).toString();
+        QString newEtat;
+
+        // Alternance ENTRER <-> SORTIR
+        if (emplacement.isEmpty() || emplacement == "SORTIR")
+            newEtat = "ENTRER";
+        else
+            newEtat = "SORTIR";
+
+        QSqlQuery upd;
+        upd.prepare("UPDATE FOURNISSEUR SET EMPLACEMENT = :e WHERE ID_FOURNISSEUR = :id");
+        upd.bindValue(":e", newEtat);
+        upd.bindValue(":id", id);
+        upd.exec();
+
+        qDebug() << "EMPLACEMENT mis à jour:" << newEtat;
+        arduino1->sendToArduino("OK#");
+    }
+    else {
+        qDebug() << "ID INCONNU DANS LA BASE !";
+        arduino1->sendToArduino("NOK#");
+    }
+}
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    if (arduino1)
+        arduino1->sendToArduino("EXIT#");
+
+    event->accept();
 }
 

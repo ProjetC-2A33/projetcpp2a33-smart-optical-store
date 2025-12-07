@@ -1,0 +1,3 @@
+set(__QT_DEPLOY_TARGET_gestion_stock_FILE C:/Users/douai/Desktop/intg/projetcpp2a33-smart-optical-store/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/gestion_stock.exe)
+set(__QT_DEPLOY_TARGET_gestion_stock_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_gestion_stock_RUNTIME_DLLS C:/Qt/6.10.1/mingw_64/bin/Qt6Sql.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Network.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6PrintSupport.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Charts.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6SerialPort.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6OpenGLWidgets.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Widgets.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6OpenGL.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Gui.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Core.dll)

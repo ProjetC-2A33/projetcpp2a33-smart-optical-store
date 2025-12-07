@@ -6,6 +6,7 @@
 #include "employe.h"
 #include "fournisseur.h"
 #include "client.h"
+#include "arduino1.h"
 
 
 #include <QDialog>
@@ -115,8 +116,10 @@ private slots:
 
     
 
-    
+    //arduino
+    void handleCodeFromKeypad(QString code);
 
+    void closeEvent(QCloseEvent *event) override;
 
 
 
@@ -159,6 +162,7 @@ private:
     Employe employeTemp;
     Fournisseur fournisseurTemp;
     Clients clientTemp;
+    Arduino1 *arduino1;
     QNetworkAccessManager *networkManager;
    QString infobipApiKey = "159d83b9b9b5d72146befb991fe14eba-c3993467-3f30-4564-b7c7-5fdbd4edd91a";
     QString infobipBaseUrl = "https://nmvl3e.api.infobip.com";

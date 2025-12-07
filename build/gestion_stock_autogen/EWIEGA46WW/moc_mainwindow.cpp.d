@@ -769,6 +769,7 @@ C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/build/gestion
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/arduino1.h \
   C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/client.h \
   C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/employe.h \
   C:/Users/douai/Desktop/qttt/intg/projetcpp2a33-smart-optical-store/fournisseur.h \

@@ -9,60 +9,55 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql Network PrintSupport charts)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Network PrintSupport charts )
-
-set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        connexion.h
-        connexion.cpp
-        produit.h
-        produit.cpp
-        employe.h
-        employe.cpp
-        fournisseur.h
-        fournisseur.cpp
-        client.h
-        client.cpp
+# === Modules Qt requis ===
+find_package(Qt6 REQUIRED COMPONENTS
+    Core
+    Widgets
+    Sql
+    Network
+    PrintSupport
+    Charts
+    SerialPort       # ⚡ IMPORTANT POUR QSerialPort
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql Network PrintSupport charts)
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Quick)
+# === Sources ===
+set(PROJECT_SOURCES
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    connexion.h
+    connexion.cpp
+    produit.h
+    produit.cpp
+    employe.h
+    employe.cpp
+    fournisseur.h
+    fournisseur.cpp
+    client.h
+    client.cpp
+    arduino1.cpp          # ⚡ Ajout Arduino1
+    arduino1.h
+)
 
-    qt_add_executable(gestion_stock
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-        employe.h employe.cpp
-        fournisseur.h fournisseur.cpp
-        client.h client.cpp
-    )
-else()
-    if(ANDROID)
-        add_library(gestion_stock SHARED
-            ${PROJECT_SOURCES}
-        )
-    else()
-        add_executable(gestion_stock
-            ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
+# === Exécutable ===
+qt_add_executable(gestion_stock
+    ${PROJECT_SOURCES}
+)
 
-target_link_libraries(gestion_stock PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::PrintSupport Qt${QT_VERSION_MAJOR}::Charts)
-target_link_libraries(gestion_stock PRIVATE Qt6::Core Qt6::Widgets Qt6::Quick)
+# === Liens Qt ===
+target_link_libraries(gestion_stock PRIVATE
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Sql
+    Qt6::Network
+    Qt6::PrintSupport
+    Qt6::Charts
+    Qt6::SerialPort       # ⚡ obligatoire pour Arduino
+)
 
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.gestion_stock)
-endif()
-
+# === Configuration Windows / Mac ===
 set_target_properties(gestion_stock PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
@@ -74,6 +69,4 @@ install(TARGETS gestion_stock
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(gestion_stock)
-endif()
+qt_finalize_executable(gestion_stock)

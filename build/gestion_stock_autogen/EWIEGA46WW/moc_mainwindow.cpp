@@ -96,6 +96,11 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "on_btnAdvancedFeatures_clicked",
         "afficherFournisseurs",
         "viderChampsFournisseur",
+        "handleCodeFromKeypad",
+        "code",
+        "closeEvent",
+        "QCloseEvent*",
+        "event",
         "on_pb_supprimer_clicked",
         "on_pb_modifier_2_clicked",
         "on_pb_ajouter_clicked",
@@ -249,78 +254,86 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(54, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'viderChampsFournisseur'
         QtMocHelpers::SlotData<void()>(55, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleCodeFromKeypad'
+        QtMocHelpers::SlotData<void(QString)>(56, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 57 },
+        }}),
+        // Slot 'closeEvent'
+        QtMocHelpers::SlotData<void(QCloseEvent *)>(58, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 59, 60 },
+        }}),
         // Slot 'on_pb_supprimer_clicked'
-        QtMocHelpers::SlotData<void()>(56, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pb_modifier_2_clicked'
-        QtMocHelpers::SlotData<void()>(57, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pb_ajouter_clicked'
-        QtMocHelpers::SlotData<void()>(58, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'handleMessageBoxResult'
-        QtMocHelpers::SlotData<void(int)>(59, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 60 },
-        }}),
-        // Slot 'refreshTable'
         QtMocHelpers::SlotData<void()>(61, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_tab_clients_clicked'
-        QtMocHelpers::SlotData<void(const QModelIndex &)>(62, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 63, 64 },
+        // Slot 'on_pb_modifier_2_clicked'
+        QtMocHelpers::SlotData<void()>(62, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pb_ajouter_clicked'
+        QtMocHelpers::SlotData<void()>(63, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleMessageBoxResult'
+        QtMocHelpers::SlotData<void(int)>(64, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 65 },
         }}),
         // Slot 'refreshTable'
-        QtMocHelpers::SlotData<void(QSqlQueryModel *)>(61, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 65, 66 },
+        QtMocHelpers::SlotData<void()>(66, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_tab_clients_clicked'
+        QtMocHelpers::SlotData<void(const QModelIndex &)>(67, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 68, 69 },
+        }}),
+        // Slot 'refreshTable'
+        QtMocHelpers::SlotData<void(QSqlQueryModel *)>(66, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 70, 71 },
         }}),
         // Slot 'on_refrech_pb_clicked'
-        QtMocHelpers::SlotData<void()>(67, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(72, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_Imprimer_clicked'
-        QtMocHelpers::SlotData<void()>(68, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(73, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pb_pdf_clicked'
-        QtMocHelpers::SlotData<void()>(69, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(74, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pb_word_clicked'
-        QtMocHelpers::SlotData<void()>(70, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(75, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_lineEdit_textChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(71, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 72 },
+        QtMocHelpers::SlotData<void(const QString &)>(76, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 77 },
         }}),
         // Slot 'on_tableWidget_c_cellClicked'
-        QtMocHelpers::SlotData<void(int, int)>(73, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 74 }, { QMetaType::Int, 75 },
+        QtMocHelpers::SlotData<void(int, int)>(78, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 79 }, { QMetaType::Int, 80 },
         }}),
         // Slot 'on_comboBox_tri_currentIndexChanged'
-        QtMocHelpers::SlotData<void(int)>(76, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 64 },
+        QtMocHelpers::SlotData<void(int)>(81, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 69 },
         }}),
         // Slot 'on_search_textChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(77, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 78 },
+        QtMocHelpers::SlotData<void(const QString &)>(82, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 83 },
         }}),
         // Slot 'on_stats_clicked'
-        QtMocHelpers::SlotData<void()>(79, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(84, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'envoyerSMS'
-        QtMocHelpers::SlotData<void(const QString &, const QString &)>(80, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 81 }, { QMetaType::QString, 82 },
+        QtMocHelpers::SlotData<void(const QString &, const QString &)>(85, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 86 }, { QMetaType::QString, 87 },
         }}),
         // Slot 'onSMSReply'
-        QtMocHelpers::SlotData<void(QNetworkReply *)>(83, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 84, 85 },
+        QtMocHelpers::SlotData<void(QNetworkReply *)>(88, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 89, 90 },
         }}),
         // Slot 'on_pushButton_envoyerSMS_clicked'
-        QtMocHelpers::SlotData<void()>(86, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(91, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pb_history_clicked'
-        QtMocHelpers::SlotData<void()>(87, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(92, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'updateStatsLabel'
-        QtMocHelpers::SlotData<void()>(88, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(93, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'calculatePointOnCircle'
-        QtMocHelpers::SlotData<QPointF(QPointF, double, double)>(89, 2, QMC::AccessPrivate, 0x80000000 | 90, {{
-            { 0x80000000 | 90, 91 }, { QMetaType::Double, 92 }, { QMetaType::Double, 93 },
+        QtMocHelpers::SlotData<QPointF(QPointF, double, double)>(94, 2, QMC::AccessPrivate, 0x80000000 | 95, {{
+            { 0x80000000 | 95, 96 }, { QMetaType::Double, 97 }, { QMetaType::Double, 98 },
         }}),
         // Slot 'checkUI'
-        QtMocHelpers::SlotData<void()>(94, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(99, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButton_11_clicked'
-        QtMocHelpers::SlotData<void()>(95, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(100, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButton_6_clicked'
-        QtMocHelpers::SlotData<void()>(96, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(101, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_btnLogin_clicked'
-        QtMocHelpers::SlotData<void()>(97, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(102, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -396,47 +409,49 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 49: _t->on_btnAdvancedFeatures_clicked(); break;
         case 50: _t->afficherFournisseurs(); break;
         case 51: _t->viderChampsFournisseur(); break;
-        case 52: _t->on_pb_supprimer_clicked(); break;
-        case 53: _t->on_pb_modifier_2_clicked(); break;
-        case 54: _t->on_pb_ajouter_clicked(); break;
-        case 55: _t->handleMessageBoxResult((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 56: _t->refreshTable(); break;
-        case 57: _t->on_tab_clients_clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
-        case 58: _t->refreshTable((*reinterpret_cast<std::add_pointer_t<QSqlQueryModel*>>(_a[1]))); break;
-        case 59: _t->on_refrech_pb_clicked(); break;
-        case 60: _t->on_Imprimer_clicked(); break;
-        case 61: _t->on_pb_pdf_clicked(); break;
-        case 62: _t->on_pb_word_clicked(); break;
-        case 63: _t->on_lineEdit_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 64: _t->on_tableWidget_c_cellClicked((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
-        case 65: _t->on_comboBox_tri_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 66: _t->on_search_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 67: _t->on_stats_clicked(); break;
-        case 68: _t->envoyerSMS((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
-        case 69: _t->onSMSReply((*reinterpret_cast<std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
-        case 70: _t->on_pushButton_envoyerSMS_clicked(); break;
-        case 71: _t->on_pb_history_clicked(); break;
-        case 72: _t->updateStatsLabel(); break;
-        case 73: { QPointF _r = _t->calculatePointOnCircle((*reinterpret_cast<std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<double>>(_a[3])));
+        case 52: _t->handleCodeFromKeypad((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 53: _t->closeEvent((*reinterpret_cast<std::add_pointer_t<QCloseEvent*>>(_a[1]))); break;
+        case 54: _t->on_pb_supprimer_clicked(); break;
+        case 55: _t->on_pb_modifier_2_clicked(); break;
+        case 56: _t->on_pb_ajouter_clicked(); break;
+        case 57: _t->handleMessageBoxResult((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 58: _t->refreshTable(); break;
+        case 59: _t->on_tab_clients_clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 60: _t->refreshTable((*reinterpret_cast<std::add_pointer_t<QSqlQueryModel*>>(_a[1]))); break;
+        case 61: _t->on_refrech_pb_clicked(); break;
+        case 62: _t->on_Imprimer_clicked(); break;
+        case 63: _t->on_pb_pdf_clicked(); break;
+        case 64: _t->on_pb_word_clicked(); break;
+        case 65: _t->on_lineEdit_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 66: _t->on_tableWidget_c_cellClicked((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
+        case 67: _t->on_comboBox_tri_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 68: _t->on_search_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 69: _t->on_stats_clicked(); break;
+        case 70: _t->envoyerSMS((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
+        case 71: _t->onSMSReply((*reinterpret_cast<std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
+        case 72: _t->on_pushButton_envoyerSMS_clicked(); break;
+        case 73: _t->on_pb_history_clicked(); break;
+        case 74: _t->updateStatsLabel(); break;
+        case 75: { QPointF _r = _t->calculatePointOnCircle((*reinterpret_cast<std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<double>>(_a[3])));
             if (_a[0]) *reinterpret_cast<QPointF*>(_a[0]) = std::move(_r); }  break;
-        case 74: _t->checkUI(); break;
-        case 75: _t->on_pushButton_11_clicked(); break;
-        case 76: _t->on_pushButton_6_clicked(); break;
-        case 77: _t->on_btnLogin_clicked(); break;
+        case 76: _t->checkUI(); break;
+        case 77: _t->on_pushButton_11_clicked(); break;
+        case 78: _t->on_pushButton_6_clicked(); break;
+        case 79: _t->on_btnLogin_clicked(); break;
         default: ;
         }
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 58:
+        case 60:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QSqlQueryModel* >(); break;
             }
             break;
-        case 69:
+        case 71:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -466,14 +481,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 78)
+        if (_id < 80)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 78;
+        _id -= 80;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 78)
+        if (_id < 80)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 78;
+        _id -= 80;
     }
     return _id;
 }
